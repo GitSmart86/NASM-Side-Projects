@@ -1,0 +1,6 @@
+d:
+cd D:\Visual Studio Projects\Visual Code\CPS230\cps230-project-labrats
+nasm -f bin -o kernel.com kernel.asm
+mkfloppy b.img boot.com kernel.com
+copy b.img d:\ /y
+del b.img kernel.com

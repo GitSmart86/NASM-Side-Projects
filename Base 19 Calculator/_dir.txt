@@ -1,0 +1,3 @@
+d:
+cd D:\Visual Studio Projects\Visual Code\CPS230\cps230-prog2-GitSmart86\
+make

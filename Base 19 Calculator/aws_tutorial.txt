@@ -1,0 +1,46 @@
+
+eksctl utils associate-iam-oidc-provider \
+    --region us-east-2 \
+    --cluster atc \
+    --approve
+
+
+eksctl create cluster \
+--name atc \
+--version 1.16 \
+--nodegroup-name standard-workers \
+--node-type t3.medium \
+--nodes 1 \
+--nodes-min 1 \
+--nodes-max 2 \
+--node-ami auto \
+--vpc-private-subnets "<vpc-private-a id>","<vpc-private-b id>" \
+--vpc-public-subnets "<vpc-private-a id>","<vpc-public-b id>"
+
+
+
+    - userarn: arn:aws:iam::319018016056:user/jon_l
+      username: jon_l
+      groups:
+        - system:masters
+    - userarn: arn:aws:iam::319018016056:user/justin
+      username: justin
+      groups:
+        - system:masters
+
+
+eksctl utils associate-iam-oidc-provider \
+    --region us-east-2 \
+    --cluster atc \
+    --approve
+
+
+
+    eksctl create iamserviceaccount \
+    --region us-east-2 \
+    --name alb-ingress-controller \
+    --namespace kube-system \
+    --cluster atc \
+    --attach-policy-arn arn:aws:iam::199061610780:policy/ALBIngressControllerIAMPolicy \
+    --override-existing-serviceaccounts \
+    --approve

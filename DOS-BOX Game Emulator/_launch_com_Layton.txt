@@ -1,0 +1,5 @@
+d:
+cd D:\Visual Studio Projects\Visual Code\CPS230\cps230-project-labrats
+nasm -f bin -o k.com kernel.asm
+copy k.com d:\ /y
+del k.com

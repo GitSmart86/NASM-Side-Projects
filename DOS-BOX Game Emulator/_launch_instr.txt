@@ -1,0 +1,6 @@
+mount D "D:/"
+D:
+<name>.com
+
+
+boot <name>.img
